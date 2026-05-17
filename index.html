@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Congress Guarantees — Karnataka Promise Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ===== MASTHEAD ===== -->
+<header class="masthead">
+  <div class="masthead-bar">
+    <span>
+      <span class="live-tag">LIVE</span>
+      &nbsp; Congress Sarkar Promises — Karnataka Accountability Tracker &nbsp;|&nbsp; Assembly Election 2023
+    </span>
+    <span id="today-date">Loading...</span>
+  </div>
+  <div class="masthead-main">
+    <div class="masthead-logo">
+      <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+           stroke="#fff" stroke-width="2">
+        <path d="M9 11l3 3L22 4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="party-name">INC<br>Karnataka</span>
+    </div>
+    <div class="masthead-text">
+      <h1>Congress Sarkar<br><span>Promises</span></h1>
+      <p class="masthead-sub">
+        Karnataka's public ledger — tracking every commitment made to the people, 2023–2028
+        &nbsp;·&nbsp; Oath administered by Governor Thaawarchand Gehlot
+      </p>
+      <div class="masthead-meta">
+        <div class="meta-item">
+          <span class="meta-label">Chief Minister</span>
+          <span class="meta-value">Siddaramaiah</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Oath Ceremony</span>
+          <span class="meta-value">20 May 2023, Kanteerava Stadium</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Seats Won</span>
+          <span class="meta-value">135 / 224</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Term Ends</span>
+          <span class="meta-value">May 2028</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Days in Office</span>
+          <span class="meta-value" id="days-in-office">—</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Days Remaining</span>
+          <span class="meta-value" id="days-remaining">—</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== COUNTDOWN TIMER ===== -->
+<div class="timer-section">
+  <div class="timer-block"><span class="timer-num" id="t-years">—</span><span class="timer-lbl">Years</span></div>
+  <span class="timer-sep">:</span>
+  <div class="timer-block"><span class="timer-num" id="t-months">—</span><span class="timer-lbl">Months</span></div>
+  <span class="timer-sep">:</span>
+  <div class="timer-block"><span class="timer-num" id="t-days">—</span><span class="timer-lbl">Days</span></div>
+  <span class="timer-sep">:</span>
+  <div class="timer-block"><span class="timer-num" id="t-hours">—</span><span class="timer-lbl">Hours</span></div>
+  <span class="timer-sep">:</span>
+  <div class="timer-block"><span class="timer-num" id="t-mins">—</span><span class="timer-lbl">Minutes</span></div>
+  <span class="timer-sep">:</span>
+  <div class="timer-block"><span class="timer-num" id="t-secs">—</span><span class="timer-lbl">Seconds</span></div>
+</div>
+
+<!-- ===== STATS BAND ===== -->
+<div class="stats-band">
+  <div class="stats-inner">
+    <div class="stat-card"><span class="stat-num total"    id="stat-total">—</span><span class="stat-label">Total Promises</span></div>
+    <div class="stat-card"><span class="stat-num done"     id="stat-done">0</span><span class="stat-label">Fulfilled ✓</span></div>
+    <div class="stat-card"><span class="stat-num progress" id="stat-progress">0</span><span class="stat-label">In Progress ◑</span></div>
+    <div class="stat-card"><span class="stat-num" style="color:#C0392B" id="stat-evaded">0</span><span class="stat-label">Evaded ✗</span></div>
+    <div class="stat-card"><span class="stat-num pending"  id="stat-pending">—</span><span class="stat-label">Pending ○</span></div>
+    <div class="stat-card"><span class="stat-num" style="color:var(--primary)" id="stat-pct">0%</span><span class="stat-label">Completion Rate</span></div>
+  </div>
+  <div class="progress-bar-wrap">
+    <div class="progress-bar-track">
+      <div class="progress-bar-done"   id="bar-done"   style="width:0%"></div>
+      <div class="progress-bar-inprog" id="bar-inprog" style="width:0%"></div>
+      <div class="progress-bar-evaded" id="bar-evaded" style="width:0%"></div>
+    </div>
+    <div class="progress-legend">
+      <span><span class="legend-dot dot-done"></span>Fulfilled</span>
+      <span><span class="legend-dot dot-progress"></span>In Progress</span>
+      <span><span class="legend-dot dot-evaded"></span>Evaded</span>
+      <span><span class="legend-dot dot-pending"></span>Pending</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== NAV BAR ===== -->
+<nav class="cat-nav">
+  <div class="cat-nav-desktop">
+    <a href="#guarantees">⭐ 5 Guarantees</a>
+    <a href="#overarching">🌟 Overarching</a>
+    <a href="#admin-gov">🏛 Admin &amp; Gov</a>
+    <a href="#agriculture">🌾 Agriculture</a>
+    <a href="#economy">🏭 Economy</a>
+    <a href="#edu-health">📚 Edu &amp; Health</a>
+    <a href="#social-welfare">⚖ Social Welfare</a>
+    <a href="#youth-sports">🎓 Youth</a>
+    <a href="#culture">🎭 Culture</a>
+    <a href="#regional">🗺 Regional</a>
+    <a href="#bengaluru">🏙 Bengaluru</a>
+  </div>
+  <div class="cat-nav-mobile">
+    <button class="nav-trigger" id="nav-trigger" onclick="toggleMobileNav()" aria-expanded="false">
+      <span>📋 Jump to Section</span>
+      <span class="nav-trigger-arrow">▾</span>
+    </button>
+    <div class="nav-dropdown" id="nav-dropdown">
+      <a href="#guarantees"    onclick="closeMobileNav()">⭐ 5 Guarantees</a>
+      <a href="#overarching"   onclick="closeMobileNav()">🌟 Overarching</a>
+      <a href="#admin-gov"     onclick="closeMobileNav()">🏛 Admin &amp; Gov</a>
+      <a href="#agriculture"   onclick="closeMobileNav()">🌾 Agriculture</a>
+      <a href="#economy"       onclick="closeMobileNav()">🏭 Economy</a>
+      <a href="#edu-health"    onclick="closeMobileNav()">📚 Edu &amp; Health</a>
+      <a href="#social-welfare" onclick="closeMobileNav()">⚖ Social Welfare</a>
+      <a href="#youth-sports"  onclick="closeMobileNav()">🎓 Youth</a>
+      <a href="#culture"       onclick="closeMobileNav()">🎭 Culture</a>
+      <a href="#regional"      onclick="closeMobileNav()">🗺 Regional</a>
+      <a href="#bengaluru"     onclick="closeMobileNav()">🏙 Bengaluru</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== 5 GUARANTEES CALLOUT ===== -->
+<section class="key-promises-section" id="guarantees">
+  <div class="key-promises-inner">
+    <h2 class="kp-title">⭐ Congress 5 Guarantees — The Headline Commitments</h2>
+    <div class="kp-grid">
+      <div class="kp-card done">
+        <span class="kp-num">1</span>
+        <p class="kp-text"><strong>GRUHA JYOTHI</strong><br>200 UNITS OF GRUHA JYOTHI FREE ELECTRICITY TO ALL THE HOUSES.</p>
+        <div><span class="kp-badge">Fulfilled</span></div>
+      </div>
+      <div class="kp-card done">
+        <span class="kp-num">2</span>
+        <p class="kp-text"><strong>ANNA BHAGYA</strong><br>10 KGs of food grains of their choice to every person in BPL family.</p>
+        <div><span class="kp-badge">Fulfilled (Modified)</span></div>
+      </div>
+      <div class="kp-card done">
+        <span class="kp-num">3</span>
+        <p class="kp-text"><strong>GRUHA LAKSHMI</strong><br>₹2000 EVERY MONTH TO EACH AND EVERY WOMEN HEAD OF THE FAMILY.</p>
+        <div><span class="kp-badge">Fulfilled</span></div>
+      </div>
+      <div class="kp-card done">
+        <span class="kp-num">4</span>
+        <p class="kp-text"><strong>YUVANIDHI</strong><br>Rs.3,000/- per month for two years to unemployed graduates and Rs.1,500/ per month for diploma holders.</p>
+        <div><span class="kp-badge">Fulfilled</span></div>
+      </div>
+      <div class="kp-card done">
+        <span class="kp-num">5</span>
+        <p class="kp-text"><strong>SHAKTI</strong><br>Free travel to all women through out the state in regular KSRTC/BMTC Buses.</p>
+        <div><span class="kp-badge">Fulfilled</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MAIN PROMISES LIST ===== -->
+<main class="main-content">
+  <div class="how-to-read">
+    <strong>How to read this tracker</strong>
+    Each promise is logged exactly as stated in the Congress Party's official manifesto.
+    Status is updated as events unfold over the 5-year term (2023–2028).
+    <div class="legend-inline">
+      <span class="badge badge-done">✓ Fulfilled</span>
+      <span class="badge badge-progress">◑ In Progress</span>
+      <span class="badge badge-evaded">✗ Evaded</span>
+      <span class="badge badge-pending">○ Pending</span>
+    </div>
+  </div>
+
+  <!-- Populated dynamically by app.js -->
+  <div id="promises-container"></div>
+</main>
+
+<!-- ===== FAB ===== -->
+<a class="fab-submit" href="https://tally.so/r/WODbON" target="_blank" rel="noopener">
+  ✏ Submit an Update
+</a>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-disclaimer">
+      <span class="footer-nonpolitical">🗒️ This is not a political website.</span>
+      It is a public notepad maintained by ordinary people of Karnataka — so we don't forget what was
+      promised to us. We hold no affiliation with any party. We track facts, not opinions.
+    </div>
+
+    <div class="footer-goodfaith">
+      <h3 class="footer-section-title">A Note on Good Faith</h3>
+      <p>This tracker was created with genuine good faith — we believe in holding elected governments
+         accountable to the promises they made publicly, and we want this government to succeed in
+         fulfilling them for the people of Karnataka.</p>
+      <p style="margin-top:12px">We are ordinary people, not journalists. There is a real possibility
+         that we miss news, fail to update things quickly, or are unaware of developments on the ground.
+         AI was used to evaluate the status of each promise, so there might be some inaccuracies.
+         <strong>That is exactly why we need your help.</strong> If you know that something has been done,
+         started, or abandoned — please tell us.</p>
+      <a class="footer-submit-link" href="https://tally.so/r/WODbON" target="_blank" rel="noopener">
+        ✏ Submit information or a correction →
+      </a>
+    </div>
+
+    <div class="footer-methodology">
+      <h3 class="footer-section-title">Methodology &amp; Standards</h3>
+      <div class="footer-rules">
+        <div class="footer-rule">
+          <span class="rule-num">01</span>
+          <div>
+            <strong>Source of promises</strong>
+            All promises are sourced from the official Karnataka Congress Manifesto 2023.
+            <a href="https://inc.in/media/press-releases/assembly-election-karnataka-manifesto-2023"
+               target="_blank" rel="noopener">📄 Read the official manifesto →</a>
+          </div>
+        </div>
+        <div class="footer-rule">
+          <span class="rule-num">02</span>
+          <div>
+            <strong>How a promise is marked "Fulfilled"</strong>
+            A promise is marked fulfilled only when backed by a verifiable government notification
+            (official gazette, government order, press release) or credible news reporting that
+            confirms implementation.
+          </div>
+        </div>
+        <div class="footer-rule">
+          <span class="rule-num">03</span>
+          <div>
+            <strong>How a promise is marked "In Progress"</strong>
+            A promise is marked in progress when a formal tender, committee, bill, or budget allocation
+            has been initiated — with a source link attached.
+          </div>
+        </div>
+        <div class="footer-rule">
+          <span class="rule-num">04</span>
+          <div>
+            <strong>What "Evaded" means</strong>
+            A promise is marked evaded when the government has taken action that makes its fulfilment
+            structurally impossible.
+          </div>
+        </div>
+        <div class="footer-rule">
+          <span class="rule-num">05</span>
+          <div>
+            <strong>Term tracked</strong>
+            Oath ceremony: 20 May 2023. All promises are tracked over the full 5-year term ending
+            May 2028.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>Congress Sarkar Promises &nbsp;·&nbsp; Karnataka Assembly Election 2023</span>
+      <span class="last-updated" id="last-updated-footer">Last updated: 13 May 2026</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script src="js/promises.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
