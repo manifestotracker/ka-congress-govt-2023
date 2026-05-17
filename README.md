@@ -2,7 +2,7 @@
 
 A public accountability tracker for the Karnataka Congress government's 2023 election manifesto promises, covering the full 5-year term (May 2023 – May 2028).
 
-**Live site:** _(add your GitHub Pages URL here)_
+**Live site:** https://ka-congress-govt-2023.pages.dev/
 
 ---
 
