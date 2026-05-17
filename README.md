@@ -1,9 +1,11 @@
 # Karnataka Promise Tracker
 
-A public accountability tracker for the Karnataka Congress government's 2023 election manifesto promises, covering the full 5-year term (May 2023 – May 2028). This is inspired by https://bjp-govt-wb.pages.dev/ 
+A public accountability tracker for the Karnataka Congress government's 2023 election manifesto promises, covering the full 5-year term (May 2023 – May 2028). 
 
 
 **Live site:** https://ka-congress-govt-2023.pages.dev/
+
+This is inspired by https://bjp-govt-wb.pages.dev/ 
 
 ---
 
